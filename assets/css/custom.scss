@@ -1,0 +1,14 @@
+/* 最小化自定义样式 */
+
+/* 移除标题前的哈希符号 */
+.single .content h2::before {
+  display: none !important;
+}
+
+/* 清理摘要样式 */
+.home[data-home="posts"] .summary {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+} 
