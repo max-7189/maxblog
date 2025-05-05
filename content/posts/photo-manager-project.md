@@ -1,6 +1,6 @@
 ---
 title: "PhotoManager: Organizing Memories, Simplifying Life"
-date: 2023-08-20T11:00:00+08:00
+date: 2024-11-20T11:00:00+08:00
 draft: false
 math: true
 summary: "An intelligent photo management application helping users organize memories, with plans to integrate FastViT for AI-powered automatic classification."

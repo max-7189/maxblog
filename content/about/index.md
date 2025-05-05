@@ -10,7 +10,6 @@ lightgallery: true
 ## Contact Information
 - **Phone**: 022 6511037  
 - **Email**: maxzhao0610@gmail.com  
-- **Address**: 7 Golden Morning Drive, Albany, Auckland, New Zealand  
 
 ## Profile
 Results-driven Full-Stack Developer specializing in AI integration for mobile and web platforms. Experienced in delivering intelligent applications with expertise in front-end (SwiftUI, React), back-end, and advanced AI capabilities like NLP and computer vision. Skilled in translating business needs into innovative software solutions. Seeking a full-stack role to apply my diverse technical background and collaborative skills.

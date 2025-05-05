@@ -1,6 +1,6 @@
 ---
 title: "GraceAI Project - Bringing AI Companionship from Science Fiction to Reality"
-date: 2023-08-15T09:00:00+08:00
+date: 2025-02-15T09:00:00+08:00
 draft: false
 math: true
 summary: "An AI companion project inspired by the movie 'Her', implementing RAG technology to create emotional resonance and long-term memory capabilities."

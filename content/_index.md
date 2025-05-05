@@ -8,3 +8,15 @@ draft: false
 
 I am a software developer with expertise in AI, iOS development, and machine learning. This site showcases my projects and professional experience.
 
+<br/>
+
+---
+
+<div style="text-align: center; margin: 20px 0; color: #888;">
+✦ MY PROJECTS ✦
+</div>
+
+---
+
+<br/>
+

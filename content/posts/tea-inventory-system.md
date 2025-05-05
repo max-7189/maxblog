@@ -1,6 +1,6 @@
 ---
-title: "Tea - Beverage Shop Inventory Management System"
-date: 2023-08-10T10:00:00+08:00
+title: "TeaInventory - Beverage Shop Inventory Management System"
+date: 2025-04-03T10:00:00+08:00
 draft: false
 math: true
 summary: "An intelligent inventory management system designed for beverage shops, applying dynamic safety stock theory and machine learning to optimize restocking decisions."
@@ -8,11 +8,11 @@ tags: ["iOS", "Swift", "CoreData", "Machine Learning", "Inventory Management"]
 categories: ["Projects", "Mobile Development"]
 ---
 
-# Tea: Beverage Shop Inventory Management System - Technical Documentation
+# TeaInventory: Beverage Shop Inventory Management System - Technical Documentation
 
 ## 1. Project Overview
 
-Tea is an iOS inventory management system specifically designed for beverage shops, developed using SwiftUI and CoreData. It addresses key challenges in inventory management, ingredient consumption prediction, and intelligent restocking for tea shops. The project implements the MVVM architecture combined with machine learning technology to achieve intelligent inventory management.
+TeaInventory is an iOS inventory management system specifically designed for beverage shops, developed using SwiftUI and CoreData. It addresses key challenges in inventory management, ingredient consumption prediction, and intelligent restocking for tea shops. The project implements the MVVM architecture combined with machine learning technology to achieve intelligent inventory management.
 
 ## 2. Technical Architecture
 
@@ -445,4 +445,4 @@ The system adopts a modular design for easy extension of new features:
 - Support for multi-user collaboration and permission management
 - Enhanced integration with external systems (such as POS)
 
-The Tea system significantly improves beverage shop inventory management efficiency through advanced prediction algorithms and intuitive user interfaces, reducing inventory waste and optimizing the restocking process, representing the latest level of inventory management technology in the industry.
+The TeaInventory system significantly improves beverage shop inventory management efficiency through advanced prediction algorithms and intuitive user interfaces, reducing inventory waste and optimizing the restocking process, representing the latest level of inventory management technology in the industry.

@@ -289,10 +289,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # Social config in home page
   # 主页的社交信息设置
   [params.social]
-    GitHub = "Max-Zhao"
+    GitHub = "max-7189"
     # Linkedin = ""
     # X = ""
-    # Instagram = ""
+    Instagram = "maxhavenothing.exe"
     # Facebook = ""
     # Telegram = ""
     # Medium = ""
@@ -331,7 +331,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # Whatsapp = ""
     # Zhihu = ""
     # Douban = ""
-    Email = "max.zhao@example.com"
+    Email = "maxzhao0610@gmail.com"
+    Phone = "0226511037"
+    HuggingFace = "max886"
     # RSS = true
 
   # Page global config
@@ -825,7 +827,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
         post = ""
         name = ""
-        url = "https://github.com/dillonzq/LoveIt"
+        url = "https://github.com/max-7189"
         title = "GitHub"
     [languages.en.params]
       [languages.en.params.search]
@@ -848,21 +850,21 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           gravatarEmail = ""
           avatarURL = "images/avatar.png"
           title = ""
-          subtitle = "Max Zhao"
+          subtitle = "Results-driven Full-Stack Developer specializing in AI deployment"
           typeit = true
           social = true
           disclaimer = ""
       [languages.en.params.social]
-        GitHub = "Max-Zhao"
+        GitHub = "max-7189"
         # X = "MaxZhao"
-        Instagram = "MaxZhao"
+        Instagram = "maxhavenothing.exe"
         # Facebook = "MaxZhao"
         # Telegram = "MaxZhao"
         # Youtubelegacy = "MaxZhao"
-        HuggingFace = "MaxZhao"
+        HuggingFace = "max886"
         # Threads = "MaxZhao"
-        Phone = "555-555-555"
-        Email = "max.zhao@example.com"
+        Phone = "0226511037"
+        Email = "maxzhao0610@gmail.com"
         # RSS = true
         # [languages.en.params.social.Mastodon]
         #   id = "@MaxZhao"
@@ -920,7 +922,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
         post = ""
         name = ""
-        url = "https://github.com/dillonzq/LoveIt"
+        url = "https://github.com/max-7189"
         title = "GitHub"
     [languages.zh-cn.params]
       [languages.zh-cn.params.search]
@@ -948,15 +950,15 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           social = true
           disclaimer = ""
       [languages.zh-cn.params.social]
-        GitHub = "Max-Zhao"
+        GitHub = "max-7189"
         # Weibo = "MaxZhao"
         # Steam = "MaxZhao"
         # Zhihu = "MaxZhao"
         # Douban = "MaxZhao"
         # Devto = "MaxZhao"
-        Instagram = "MaxZhao"
-        HuggingFace = "MaxZhao"
+        Instagram = "maxhavenothing.exe"
+        HuggingFace = "max886"
         # Bilibili = "MaxZhao"
-        Email = "max.zhao@example.com"
-        Phone = "555-555-555"
+        Email = "maxzhao0610@gmail.com"
+        Phone = "0226511037"
         # RSS = true

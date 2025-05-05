@@ -1,6 +1,6 @@
 ---
 title: "DataMuse Project: A Multi-Agent AI System"
-date: 2023-08-25T14:00:00+08:00
+date: 2025-03-25T14:00:00+08:00
 draft: false
 math: false
 summary: "A multi-agent AI system built on the AutoGen framework, solving complex problems through collaboration of specialized agents."
