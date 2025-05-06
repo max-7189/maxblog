@@ -1,0 +1,4 @@
+{{ if .Params.math }}
+<!-- 如果页面使用了ECharts或者Mermaid，加载我们的修复脚本 -->
+<script src="{{ "js/echarts-fix.js" | relURL }}"></script>
+{{ end }} 
