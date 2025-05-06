@@ -13,10 +13,24 @@ if (typeof window.mermaid === 'undefined') {
     }
   };
 }
+
+// 禁用主题的mermaid初始化以防止错误
+// 这样我们可以在我们的脚本中自己处理
+window._theme_disable_mermaid = true;
 </script>
 
-<!-- 引用清单文件 -->
+<!-- 强制加载 Mermaid 库 -->
+<script src="{{ "lib/mermaid/mermaid.min.js" | absURL }}"></script>
+
+<!-- 强制加载 ECharts 库 -->
+<script src="{{ "lib/echarts/echarts.min.js" | absURL }}"></script>
+
+<!-- 修复清单文件路径 -->
 <link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
 
-<!-- 使用绝对路径预加载mermaid库 -->
-<script src="{{ "lib/mermaid/mermaid.min.js" | absURL }}"></script>
+<!-- 引用我们的修复脚本 - 放在前面确保早期加载 -->
+<script src="{{ "js/fix-mermaid.js" | absURL }}"></script>
+
+<!-- 引用我们的修复脚本 -->
+{{ $mermaidFix := resources.Get "js/mermaid-fix.js" | minify }}
+<script src="{{ $mermaidFix.RelPermalink }}"></script>
