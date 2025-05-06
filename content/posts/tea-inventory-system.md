@@ -379,7 +379,7 @@ func getRegressionModelMaturity() -> Double {
 
 The following diagram illustrates the basic workflow of the regression model in the TeaInventory system:
 
-```mermaid
+{{< mermaid >}}
 flowchart TD
     A[Data Collection] --> B[Data Preprocessing]
     B --> C[Feature Engineering]
@@ -396,7 +396,7 @@ flowchart TD
     style D fill:#f96,stroke:#333,stroke-width:2px
     style G fill:#bbf,stroke:#333,stroke-width:2px
     style H fill:#bbf,stroke:#333,stroke-width:2px
-```
+{{< /mermaid >}}
 
 The model workflow includes data collection, feature engineering, model training and evaluation, model deployment, and continuous updates. During the prediction phase, the system combines regression predictions with recipe calculations to generate the final consumption forecasts, providing accurate restock suggestions.
 
