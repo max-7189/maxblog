@@ -1,0 +1,19 @@
+<!-- 预定义mermaid对象，防止theme.min.js执行时出错 -->
+<script>
+if (typeof window.mermaid === 'undefined') {
+  window.mermaid = {
+    initialize: function(config) {
+      this._config = config || {};
+    },
+    render: function(id, text, callback) {
+      if (typeof callback === 'function') {
+        callback({svg: '<div class="mermaid-loading">图表加载中...</div>'});
+      }
+      return { svg: '<div class="mermaid-loading">图表加载中...</div>' };
+    }
+  };
+}
+</script>
+
+<!-- 使用绝对路径预加载mermaid库 -->
+<script src="{{ "lib/mermaid/mermaid.min.js" | absURL }}"></script>
