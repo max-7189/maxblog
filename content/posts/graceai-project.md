@@ -68,25 +68,25 @@ GraceAI employs a hybrid architectural design, balancing local processing with c
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                      iOS App Layer                       │
+│                      iOS App Layer                      │
 │  ┌─────────────┐   ┌─────────────┐   ┌─────────────┐    │
-│  │ User        │   │ Local Memory │   │ Audio       │    │
-│  │ Interface   │   │ Management   │   │ Processing  │    │
+│  │ User        │   │ Local Memory│   │ Audio       │    │
+│  │ Interface   │   │ Management  │   │ Processing  │    │
 │  └─────────────┘   └─────────────┘   └─────────────┘    │
 └────────────┬────────────────┬────────────────┬──────────┘
              │                │                │
 ┌────────────▼────────────────▼────────────────▼──────────┐
-│                    Integration Service Layer             │
+│                    Integration Service Layer            │
 │  ┌─────────────┐   ┌─────────────┐   ┌─────────────┐    │
 │  │ LLM API     │   │ Vector      │   │ STT/TTS     │    │
 │  │ Interface   │   │ Database    │   │ Services    │    │
 │  └─────────────┘   └─────────────┘   └─────────────┘    │
-└────────────┬────────────────┬────────────────┬──────────┘
-             │                │                │
-┌────────────▼───┐  ┌─────────▼──────┐  ┌──────▼─────────┐
-│  OpenAI API    │  │ Local/Cloud    │  │  Voice Service │
-│                │  │ Vector Storage │  │  APIs          │
-└────────────────┘  └────────────────┘  └────────────────┘
+└────────────┬─────────────────────────────────┬──────────┘
+             │                                 │
+┌────────────▼───┐                      ┌──────▼─────────┐
+│  OpenAI API    │ ───────────────────> │  Voice Service │
+│                │                      │  APIs          │
+└────────────────┘                      └────────────────┘
 ```
 
 ### 3.2 Technology Stack Selection

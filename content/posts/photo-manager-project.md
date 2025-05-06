@@ -18,11 +18,11 @@ However, reality quickly gave me a harsh reminder—my photo library was clutter
 
 That night, lying in bed, I spent two full hours browsing through photos. My finger constantly swiped the screen as my eyes scanned image after image. During this process, I experienced an emotional rollercoaster:
 
-> Seeing old friends' smiling faces made me smile involuntarily;
-> 
-> Glimpsing friends I had lost contact with for years brought a tinge of melancholy;
-> 
-> Viewing places I had once visited made those landscapes reappear before my eyes.
+ Seeing old friends' smiling faces made me smile involuntarily;
+ 
+ Glimpsing friends I had lost contact with for years brought a tinge of melancholy;
+
+ Viewing places I had once visited made those landscapes reappear before my eyes.
 
 But at the same time, I discovered that my photo library was filled with numerous useless images: work screenshots, blurry photos, duplicate images... Not only did they occupy my storage space, but they also hindered me from finding truly precious memories.
 
