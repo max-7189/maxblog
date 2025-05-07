@@ -1,133 +1,139 @@
 <!-- 修复mermaid图表问题的最终解决方案 -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('Custom footer script started.');
+  console.log('Custom footer script started V2.'); // Version marker
   let mermaidLoaded = typeof window.mermaid !== 'undefined';
   let echartsLoaded = typeof window.echarts !== 'undefined';
   const mermaidSrc = '{{ "lib/mermaid/mermaid.min.js" | absURL }}';
   const echartsSrc = '{{ "lib/echarts/echarts.min.js" | absURL }}';
-
-  // Flag to track if initialization has run
   let initialized = false;
 
   function loadScript(src, callback) {
-    console.log('Loading script:', src);
+    console.log('Custom Footer V2: Loading script:', src);
     const script = document.createElement('script');
     script.src = src;
     script.onload = function() {
-      console.log('Script loaded successfully:', src);
+      console.log('Custom Footer V2: Script loaded successfully:', src);
       callback();
     };
     script.onerror = function() {
-      console.error('Failed to load script:', src);
-      callback(); // Still call callback to potentially initialize other charts
+      console.error('Custom Footer V2: Failed to load script:', src);
+      callback(); 
     };
-    document.body.appendChild(script); // Append to body to ensure it loads late
+    document.body.appendChild(script);
   }
 
   function initializeCharts() {
-    // Prevent double initialization
     if (initialized) return;
     initialized = true;
-    console.log('Attempting to initialize charts...');
+    console.log('Custom Footer V2: Attempting to initialize charts...');
 
-    // Initialize Mermaid
     if (typeof window.mermaid !== 'undefined') {
-      console.log('Initializing Mermaid...');
+      console.log('Custom Footer V2: Initializing Mermaid...');
       try {
         mermaid.initialize({
-          startOnLoad: false, // We will manually render
+          startOnLoad: false, 
           theme: document.body.getAttribute('theme') === 'dark' ? 'dark' : 'neutral',
           securityLevel: 'loose'
         });
         const mermaidElements = document.querySelectorAll('div.mermaid');
-        console.log(`Found ${mermaidElements.length} mermaid elements.`);
-        if (mermaidElements.length > 0) {
-           // Use mermaid.run() for dynamic rendering as per newer versions
-           mermaid.run({ nodes: mermaidElements });
-           console.log('mermaid.run() called.');
-        }
+        console.log(`Custom Footer V2: Found ${mermaidElements.length} mermaid elements.`);
+        mermaidElements.forEach((element, index) => {
+          const sourceDataElement = element.querySelector('script.mermaid-source-data');
+          if (sourceDataElement && sourceDataElement.textContent) {
+            const mermaidCode = sourceDataElement.textContent.trim(); // Trim whitespace
+            console.log(`Custom Footer V2: Rendering Mermaid for element id: ${element.id} with code:\n`, mermaidCode);
+            try {
+                // Ensure the element is empty before mermaid tries to inject SVG to avoid issues if theme also tried something.
+                // Keep our script tag though.
+                let child = element.firstChild;
+                while(child) {
+                    if (child.nodeType === Node.ELEMENT_NODE && child.tagName.toLowerCase() !== 'script') {
+                        element.removeChild(child);
+                    }
+                    child = child.nextSibling;
+                }
+                mermaid.render(element.id, mermaidCode, (svgCode) => {
+                    element.innerHTML = ''; // Clear again before inserting final SVG
+                    element.insertAdjacentHTML('beforeend', svgCode);
+                    console.log(`Custom Footer V2: Mermaid rendered for ${element.id}`);
+                });
+            } catch (renderError) {
+                console.error(`Custom Footer V2: mermaid.render error for ${element.id}:`, renderError);
+                element.innerHTML = `<pre>Mermaid render error: ${renderError.message}</pre>`;
+            }
+          } else {
+            console.warn(`Custom Footer V2: Could not find source data for mermaid element:`, element);
+          }
+        });
       } catch (e) {
-        console.error('Error initializing Mermaid:', e);
+        console.error('Custom Footer V2: Error initializing Mermaid globally:', e);
       }
     } else {
-      console.warn('Mermaid library not available for initialization.');
+      console.warn('Custom Footer V2: Mermaid library not available for initialization.');
     }
 
-    // Initialize ECharts
+    // ECharts Initialization (keep existing, may need similar data embedding if it fails)
     if (typeof window.echarts !== 'undefined') {
-      console.log('Initializing ECharts...');
+      console.log('Custom Footer V2: Initializing ECharts...');
       try {
         const echartsElements = document.querySelectorAll('div.echarts');
-        console.log(`Found ${echartsElements.length} echarts elements.`);
+        console.log(`Custom Footer V2: Found ${echartsElements.length} echarts elements.`);
         echartsElements.forEach(function(element) {
-          // ECharts config might be stored differently by the theme, often in window.config.data
-          // This part might need adjustment based on how LoveIt stores ECharts data
           const chartId = element.id;
           let chartOptions = null;
           if (window.config && window.config.data && window.config.data[chartId]) {
              try {
                 chartOptions = JSON.parse(window.config.data[chartId]);
              } catch(parseError) {
-                 console.error(`Failed to parse ECharts options for ${chartId}:`, parseError, window.config.data[chartId]);
+                 console.error(`Custom Footer V2: Failed to parse ECharts options for ${chartId} from window.config:`, parseError);
              }
-          } else {
-             // Fallback: Try reading options from a data attribute if available
+          }
+          if (!chartOptions) { // Fallback to data attribute if window.config fails
              const optionsAttr = element.getAttribute('data-echarts-options');
              if (optionsAttr) {
                  try {
                      chartOptions = JSON.parse(optionsAttr);
                  } catch(parseError) {
-                    console.error(`Failed to parse ECharts options from data attribute for ${chartId}:`, parseError, optionsAttr);
+                    console.error(`Custom Footer V2: Failed to parse ECharts options from data attribute for ${chartId}:`, parseError);
                  }
-             } else {
-                  console.warn(`Could not find ECharts options for element with id: ${chartId}. Theme might store data differently.`);
              }
           }
-
           if (chartOptions) {
             const chart = echarts.init(element, document.body.getAttribute('theme') === 'dark' ? 'dark' : 'light', {renderer: 'svg'});
             chart.setOption(chartOptions);
-            console.log(`ECharts instance created for ${chartId}`);
+            console.log(`Custom Footer V2: ECharts instance created for ${chartId}`);
           } else {
-            console.error(`Skipping ECharts initialization for ${chartId} due to missing options.`);
+            console.warn(`Custom Footer V2: Could not find ECharts options for ${chartId}.`);
           }
         });
       } catch (e) {
-        console.error('Error initializing ECharts:', e);
+        console.error('Custom Footer V2: Error initializing ECharts:', e);
       }
     } else {
-      console.warn('ECharts library not available for initialization.');
+      console.warn('Custom Footer V2: ECharts library not available for initialization.');
     }
-    console.log('Chart initialization attempt finished.');
+    console.log('Custom Footer V2: Chart initialization attempt finished.');
   }
 
-  // Determine loading strategy
   let scriptsToLoad = 0;
   if (!mermaidLoaded) scriptsToLoad++;
   if (!echartsLoaded) scriptsToLoad++;
 
   if (scriptsToLoad === 0) {
-    // Both scripts likely loaded by theme (or already present)
-    console.log('Both libraries seem already loaded. Initializing charts.');
+    console.log('Custom Footer V2: Both libraries seem already loaded. Initializing charts.');
     initializeCharts();
   } else {
-    // Load missing scripts
     let scriptsLoadedCount = 0;
     const onScriptLoad = function() {
       scriptsLoadedCount++;
       if (scriptsLoadedCount === scriptsToLoad) {
-        console.log('All dynamically loaded scripts are ready. Initializing charts.');
+        console.log('Custom Footer V2: All dynamically loaded scripts are ready. Initializing charts.');
         initializeCharts();
       }
     };
-
-    if (!mermaidLoaded) {
-      loadScript(mermaidSrc, onScriptLoad);
-    }
-    if (!echartsLoaded) {
-      loadScript(echartsSrc, onScriptLoad);
-    }
+    if (!mermaidLoaded) loadScript(mermaidSrc, onScriptLoad);
+    if (!echartsLoaded) loadScript(echartsSrc, onScriptLoad);
   }
 });
 </script> 

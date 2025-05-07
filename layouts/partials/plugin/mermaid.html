@@ -1,3 +1,8 @@
+{{- /* layouts/partials/plugin/mermaid.html (override) */ -}}
 {{- $id := dict "Content" .Content "Scratch" .Page.Scratch | partial "function/id.html" -}}
-<div class="mermaid" id="{{ $id }}"></div>
+<div class="mermaid" id="{{ $id }}">
+  {{/* Embed the actual mermaid code directly into a script tag for easy JS access */}}
+  <script type="text/template" class="mermaid-source-data">{{ .Content }}</script>
+</div>
+{{- /* We still set this scratch variable, in case other theme parts rely on it, but our JS won't use the theme's data path */}}
 {{- .Page.Scratch.SetInMap "this" "mermaid" true -}} 
